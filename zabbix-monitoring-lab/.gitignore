@@ -1,0 +1,14 @@
+# Настоящие конфиги и локальные секреты
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+zabbix.conf.php
+zabbix_server.conf
+secrets/
+*.dump
+*.backup
+*.deb

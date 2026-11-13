@@ -1,0 +1,27 @@
+# Документация для ручного ввода. НЕ формат импорта Zabbix.
+host: "Zabbix server"
+scenario:
+  name: "Nginx HTTP availability"
+  update_interval: "30s"
+  attempts: 1
+  http_user_agent: "Zabbix"
+  enabled: true
+  steps:
+    - name: "Nginx home page"
+      url: "http://192.168.1.53/"
+      timeout: "5s"
+      retrieve_mode: "Body"
+      follow_redirects: false
+      required_status_codes: "200"
+      required_string: ""
+trigger:
+  name: "Nginx: HTTP check failed"
+  severity: "Average"
+  expression: 'last(/Zabbix server/web.test.fail[Nginx HTTP availability])<>0'
+  ok_event_generation: "Expression"
+  problem_event_generation_mode: "Single"
+  ok_event_closes: "All problems"
+  allow_manual_close: false
+notifications:
+  configured: false
+  note: "Внешние уведомления пропущены по решению пользователя."

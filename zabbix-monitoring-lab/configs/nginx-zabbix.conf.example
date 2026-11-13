@@ -1,0 +1,15 @@
+# Фрагменты /etc/zabbix/nginx.conf из практики.
+# Не полный server-блок и не готовый файл для замены конфигурации.
+# Сохранить поставляемые location-блоки, включая запреты служебных каталогов.
+# Внутри существующего server:
+listen 8080;
+server_name 192.168.1.53;
+root /usr/share/zabbix;
+index index.php;
+
+# В существующем PHP location-блоке:
+# fastcgi_pass unix:/var/run/php/zabbix.sock;
+#
+# После редактирования полного конфига:
+# sudo nginx -t
+# sudo systemctl reload nginx

@@ -1,0 +1,7 @@
+# Документационный фрагмент /etc/zabbix/zabbix_server.conf.
+# Не заменяет полный конфиг. У каждого параметра должна быть одна активная строка.
+DBHost=localhost
+DBName=zabbix
+DBUser=zabbix
+# Заменить локально. Настоящий пароль не хранить в Git.
+DBPassword=REPLACE_WITH_LOCAL_DB_PASSWORD
